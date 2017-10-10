@@ -20,8 +20,7 @@ cd returnnone
 sudo -H pip install -r requirements.txt
 ```
 * 运行<br>
-Flask是一个web框架，他擅长于生成html代码而不是处理和响应HTTP请求，所以我们用WSGI把Flask包裹起来，让其有处理HTTP请求的能力。<br>
-Gunicorn 默认使用同步阻塞的网络模型，对于大并发的访问表现不好，所以我们用gevent将其变为异步模型，运行一下命令：<br>
+Flask是一个web框架，他擅长于生成html代码而不是处理和响应HTTP请求，所以我们用WSGI容器把Flask包裹起来，让其有处理HTTP请求的能力。这里我们选择Gunicorn，但是Gunicorn 默认使用同步阻塞的网络模型，对于大并发的访问表现不好，所以用gevent将其变为异步模型，运行以下命令：<br>
 ```shell
 gunicorn -w4 -b127.0.0.1:28000 app:app -k gevent
 ```
