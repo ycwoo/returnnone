@@ -1,0 +1,8 @@
+bs4
+requests
+flask
+flask_wtf
+supervisor
+lxml
+gunicorn
+gevent
